@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.my_project.test_view_custom.view.CustomerViewGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@color/bg_title"
+        android:gravity="center"
+        android:text="第一个TextView"
+        android:textColor="@color/bg_blank"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="第二个TextView"
+        android:textColor="@color/bg_blank"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@color/bg_dividing_line"
+        android:gravity="center"
+        android:text="第三个TextView"
+        android:textColor="@color/bg_blank"
+        android:textSize="20sp" />
+</com.my_project.test_view_custom.view.CustomerViewGroup>

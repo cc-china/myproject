@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义属性-->
+    <attr name="titleText" format="string" />
+    <attr name="titleTextSize" format="dimension" />
+    <attr name="titleTextColor" format="color" />
+    <declare-styleable name="CustomTextView">
+        <attr name="titleText" />
+        <attr name="titleTextSize" />
+        <attr name="titleTextColor" />
+    </declare-styleable>
+
+    <!--做一个音量加减-->
+    <attr name="firstColor" format="color" />
+    <attr name="secondColor" format="color" />
+    <attr name="circleWidth" format="dimension" />
+    <attr name="dotCount" format="integer" />
+    <attr name="splitSize" format="integer" />
+    <attr name="bg" format="reference" />
+    <declare-styleable name="CustomAdjustVolumeView">
+        <attr name="firstColor" />
+        <attr name="secondColor" />
+        <attr name="circleWidth" />
+        <attr name="dotCount" />
+        <attr name="splitSize" />
+        <attr name="bg" />
+    </declare-styleable>
+
+    <!--自定义拼图滑块验证码-->
+    <declare-styleable name="CustomerPuzzleCodeView">
+        <attr name="captchaWidth" format="dimension" />
+        <attr name="captchaHeight" format="dimension" />
+        <attr name="matchDeviation" format="dimension" />
+    </declare-styleable>
+
+
+    <!--wheelPicker自定义-->
+    <declare-styleable name="WheelPicker">
+        <attr name="halfVisibleItemCount" format="integer" />
+        <attr name="itemTextSize" format="dimension" />
+        <attr name="itemMaximumWidthText" format="string" />
+        <attr name="itemTextColor" format="color" />
+        <attr name="textGradual" format="boolean" />
+        <attr name="selectedTextColor" format="color" />
+        <attr name="selectedTextSize" format="dimension" />
+        <attr name="currentItemPosition" format="integer" />
+        <attr name="itemWidthSpace" format="dimension" />
+        <attr name="itemHeightSpace" format="dimension" />
+        <attr name="zoomInSelectedItem" format="boolean" />
+        <attr name="wheelCyclic" format="boolean" />
+        <attr name="wheelCurtain" format="boolean" />
+        <attr name="wheelCurtainColor" format="color" />
+        <attr name="wheelCurtainBorder" format="boolean" />
+        <attr name="wheelCurtainBorderColor" format="color" />
+        <attr name="indicatorText" format="string" />
+        <attr name="indicatorTextSize" format="dimension" />
+        <attr name="indicatorTextColor" format="color" />
+    </declare-styleable>
+
+    <!--YearPicker的自定义-->
+    <declare-styleable name="YearPicker">
+        <attr name="startYear" format="integer"/>
+        <attr name="endYear" format="integer"/>
+    </declare-styleable>
+</resources>

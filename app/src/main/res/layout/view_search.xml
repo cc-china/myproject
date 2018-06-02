@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_click"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/shape_bg_autoeditview"
+    android:orientation="horizontal">
+
+    <AutoCompleteTextView
+        android:id="@+id/auto_editview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@null"
+        android:completionThreshold="1"
+        android:gravity="center"
+        android:singleLine="true"
+        android:imeOptions="actionSearch"
+        android:hint="模糊搜索党组织名称"
+        android:textColor="@color/bg_gray_line"
+        android:textColorHint="@color/bg_gray_line"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start|center"
+        android:paddingLeft="15dp"
+        android:src="@mipmap/text_select" />
+
+    <ImageView
+        android:id="@+id/iv_video"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end|center"
+        android:paddingRight="15dp"
+        android:src="@mipmap/btn_phonetics" />
+</FrameLayout>

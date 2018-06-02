@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.my_project.test_view_custom.view.CustomerPuzzleCodeView
+            android:id="@+id/view_customer_puzzle_code"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/beautifulgirls"
+            app:captchaHeight="30dp"
+            app:captchaWidth="30dp"
+            app:matchDeviation="5dp"/>
+
+        <Button
+            android:id="@+id/btn_change_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="点击换码" />
+    </RelativeLayout>
+
+    <SeekBar
+        android:id="@+id/seb_sliding"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp" />
+</LinearLayout>

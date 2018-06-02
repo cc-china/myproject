@@ -1,0 +1,134 @@
+package com.my_project.fragment;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.my_project.R;
+import com.my_project.a;
+import com.my_project.test_custom_date_picker.activity.DatePickerActivity;
+import com.my_project.test_event_touch_intercapt.activity.TestDisPatchTouchEventActivity;
+import com.my_project.test_image_choose.activity.TestImageChooseActivity;
+import com.my_project.test_jni.activity.MakeJNIActivity;
+import com.my_project.test_list_reverse.activity.AloneListReverseActivity;
+import com.my_project.test_more_listview.activity.TestMoreListActivity;
+import com.my_project.test_mpandroid_chart.activity.MPAndroidChartActivity;
+import com.my_project.test_player.activity.TestPlayerActivity;
+import com.my_project.test_progressbar.ui.TestProgressBar;
+import com.my_project.test_pulish_video.activity.TestPulishVideoActivity;
+import com.my_project.test_refreing_data.activity.TestRefershingDataActivity;
+import com.my_project.test_rx_java.activity.RXJavaActivity;
+import com.my_project.test_system_video.activity.TestVideoActivity;
+import com.my_project.test_touch_event.activity.TestTouchEventActivity;
+import com.my_project.test_view_custom.activity.TestViewCustomActivity;
+import com.my_project.text_io.activity.FileOperationActivity;
+
+import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+/**
+ * Created by com_c on 2017/12/26.
+ */
+
+class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.ViewHolder> {
+    private Activity ctx;
+    private List<String> mList;
+
+    public HomePageAdapter(Activity activity, List<String> list) {
+        this.ctx = activity;
+        this.mList = list;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(ctx).inflate(R.layout.item_recycler_home_page, null);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        holder.tvName.setText(mList.get(position));
+        holder.tvName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (mList.get(position)) {
+                    case "测试recycleview刷新":
+                        ctx.startActivity(new Intent(ctx, TestRefershingDataActivity.class));
+                        break;
+                    case "测试播放器":
+                        ctx.startActivity(new Intent(ctx, TestPlayerActivity.class));
+                        break;
+                    case "测试进度条":
+                        ctx.startActivity(new Intent(ctx, TestProgressBar.class));
+                        break;
+                    case "测试系统相册视频":
+                        ctx.startActivity(new Intent(ctx, TestVideoActivity.class));
+                        break;
+                    case "监听控件的触摸事件":
+                        ctx.startActivity(new Intent(ctx, TestTouchEventActivity.class));
+                        break;
+                    case "仿快手上传视频":
+                        ctx.startActivity(new Intent(ctx, TestPulishVideoActivity.class));
+                        break;
+                    case "图片多选器":
+                        ctx.startActivity(new Intent(ctx, TestImageChooseActivity.class));
+                        break;
+                    case "自定义View":
+                        ctx.startActivity(new Intent(ctx, TestViewCustomActivity.class));
+                        break;
+                    case "多层级listview联动":
+                        ctx.startActivity(new Intent(ctx, TestMoreListActivity.class));
+                        break;
+                    case "事件分发与拦截机制":
+                        ctx.startActivity(new Intent(ctx, TestDisPatchTouchEventActivity.class));
+                        break;
+                    case "仿斗鱼滑动拼图验证码View":
+                        ctx.startActivity(new Intent(ctx, TestViewCustomActivity.class));
+                        break;
+                    case "JNI调用":
+                        ctx.startActivity(new Intent(ctx, MakeJNIActivity.class));
+                        break;
+                    case "RXJava使用":
+                        ctx.startActivity(new Intent(ctx, RXJavaActivity.class));
+                        break;
+                    case "仿小米日历选择器":
+                        ctx.startActivity(new Intent(ctx, DatePickerActivity.class));
+                        break;
+                    case "MPAndroidChart图表类使用":
+                        ctx.startActivity(new Intent(ctx, MPAndroidChartActivity.class));
+                        break;
+                    case "JavaIO流操作":
+                        ctx.startActivity(new Intent(ctx, FileOperationActivity.class));
+                        break;
+                    case "测试":
+                        ctx.startActivity(new Intent(ctx, a.class));
+                        break;
+                    case "单链表反转":
+                        ctx.startActivity(new Intent(ctx, AloneListReverseActivity.class));
+                        break;
+                }
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return mList.size();
+    }
+
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        @Bind(R.id.tv_name)
+        Button tvName;
+
+        ViewHolder(View view) {
+            super(view);
+            ButterKnife.bind(this, view);
+        }
+    }
+}

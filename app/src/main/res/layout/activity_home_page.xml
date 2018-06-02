@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.my_project.TestActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_test_refershing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试recycleview刷新" />
+
+            <Button
+                android:id="@+id/btn_test_player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试播放器" />
+
+            <Button
+                android:id="@+id/btn_test_progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试进度条" />
+
+            <Button
+                android:id="@+id/btn_test_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试系统相册视频" />
+
+            <Button
+                android:id="@+id/btn_test_touch_event"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="监听控件的触摸事件" />
+
+            <Button
+                android:id="@+id/btn_test_pulish_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="仿快手上传视频" />
+
+            <Button
+                android:id="@+id/btn_test_image_more_choose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="图片多选器" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

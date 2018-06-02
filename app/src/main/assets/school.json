@@ -1,0 +1,79 @@
+﻿[
+  {
+    "pid": "0",
+    "id": "01",
+    "name": "北京市委",
+    "hasChildren": true,
+    "treeDepth": 1,
+    "type": 1,
+    "personData": [
+      {
+        "userId": "011",
+        "userName": "张龙",
+        "tell": "18769851257"
+      },
+      {
+        "userId": "012",
+        "userName": "赵虎",
+        "tell": "13699581257"
+      },
+      {
+        "userId": "013",
+        "userName": "御猫",
+        "tell": "15214869577"
+      }
+    ],
+    "children": [
+      {
+        "pid": "01",
+        "id": "01_1",
+        "name": "北京市公安局",
+        "hasChildren": false,
+        "treeDepth": 2,
+        "type": 0,
+        "personData": [
+          {
+            "userId": "01_1_1",
+            "userName": "北京市公安局刑侦大队",
+            "tell": "18769851257"
+          },
+          {
+            "userId": "01_1_2",
+            "userName": "北京市公安局防爆大队",
+            "tell": "13699581257"
+          },
+          {
+            "userId": "01_1_3",
+            "userName": "北京市公安局武装警察一分队",
+            "tell": "15214869577"
+          }
+        ]
+      },
+      {
+        "pid": "01",
+        "id": "01_2",
+        "name": "北京市教育局",
+        "hasChildren": false,
+        "treeDepth": 2,
+        "type": 0,
+        "personData": [
+          {
+            "userId": "01_2_1",
+            "userName": "北京市教育局招生办",
+            "tell": "18769851257"
+          },
+          {
+            "userId": "01_2_2",
+            "userName": "北京市教育局学籍办",
+            "tell": "13699581257"
+          },
+          {
+            "userId": "01_2_3",
+            "userName": "北京市教育局成人教育",
+            "tell": "15214869577"
+          }
+        ]
+      }
+    ]
+  }
+]
