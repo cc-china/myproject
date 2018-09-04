@@ -62,10 +62,11 @@ public class TestMainActivity extends Activity {
     }
 
     private void initView() {
-        int [] mList = {R.mipmap.a,R.mipmap.b,R.mipmap.c,R.mipmap.d};
-        settingShufflingFigure(vpPager,mList);
+        int[] mList = {R.mipmap.a, R.mipmap.b, R.mipmap.c, R.mipmap.d};
+        settingShufflingFigure(vpPager, mList);
         mHandler.sendEmptyMessageDelayed(2, 4000);
     }
+
     //设置轮播图
     private void settingShufflingFigure(CustomViewpager vpPager, int[] mList) {
         vpPager.setmPager(vpPager);
@@ -73,6 +74,7 @@ public class TestMainActivity extends Activity {
         vpPager.setAdapter(bannerAdapter);
         vpPager.setOnPageChangeListener(onPageChangeListener);
     }
+
     private ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageSelected(int arg0) {
@@ -89,9 +91,9 @@ public class TestMainActivity extends Activity {
         }
     };
 
-    private Handler mHandler = new Handler() {
-
-        public void handleMessage(Message msg) {
+    private Handler mHandler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
             switch (msg.what) {
                 case 2:
                     // TODO 循环转动
@@ -101,6 +103,7 @@ public class TestMainActivity extends Activity {
                     mHandler.sendEmptyMessageDelayed(2, 2000);
                     break;
             }
+            return false;
         }
-    };
+    });
 }

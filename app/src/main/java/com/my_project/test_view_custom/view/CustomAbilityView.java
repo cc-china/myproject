@@ -133,7 +133,7 @@ public class CustomAbilityView extends View {
         this.data = data;
         //view本身调用 迫使view重画(就是通俗的刷新界面)
         invalidate();
-}
+    }
 
     /**
      * 重写onMeasure方法
@@ -141,6 +141,12 @@ public class CustomAbilityView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(viewWidth, viewHeight);
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+        Log.e("111widthSize", "" + widthSize);
+        Log.e("111heightSize", "" + heightSize);
         //设置view的最终视图大小
         setMeasuredDimension(viewWidth, viewHeight);
     }
@@ -164,6 +170,7 @@ public class CustomAbilityView extends View {
 
     /**
      * 先画最外边的多边形轮廓线、再画顶点到多边形中心的直线
+     *
      * @param canvas
      */
     private void drawOutLine(Canvas canvas) {

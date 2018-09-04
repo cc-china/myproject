@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.danikula.videocache.HttpProxyCacheServer;
 import com.iflytek.cloud.SpeechUtility;
+import com.squareup.leakcanary.LeakCanary;
 
 /**
  * Created by nolan on 2017/9/21.
@@ -15,6 +16,13 @@ public class MyApplication extends Application {
     public void onCreate() {
         setXunFlyRadio();
         super.onCreate();
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
+        LeakCanary.install(this);
     }
 
     private void setXunFlyRadio() {

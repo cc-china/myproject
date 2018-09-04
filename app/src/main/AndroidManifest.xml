@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.NFC" />
 
     <application
         android:name=".MyApplication"
@@ -32,9 +33,9 @@
 
         </activity>
         <activity android:name=".test_player.activity.TestPlayerActivity" />
-        <activity android:name=".test_refreing_data.activity.TestRefershingDataActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            />
+        <activity
+            android:name=".test_refreing_data.activity.TestRefershingDataActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".test_progressbar.ui.TestProgressBar" />
         <activity android:name=".test_system_video.activity.TestVideoActivity" />
         <activity android:name=".test_touch_event.activity.TestTouchEventActivity" />
@@ -51,13 +52,42 @@
         <activity android:name=".test_view_custom.activity.CustomViewGrounpActivity" />
         <activity android:name=".test_view_custom.activity.CustomViewSlidingPuzzleActivity" />
         <activity android:name=".test_event_touch_intercapt.activity.TestDisPatchTouchEventActivity" />
-        <activity android:name=".test_jni.activity.MakeJNIActivity"/>
-        <activity android:name=".test_rx_java.activity.RXJavaActivity"/>
-        <activity android:name=".test_custom_date_picker.activity.DatePickerActivity"/>
-        <activity android:name=".test_mpandroid_chart.activity.MPAndroidChartActivity"/>
-        <activity android:name=".text_io.activity.FileOperationActivity"/>
-        <activity android:name=".a"/>
-        <activity android:name=".test_list_reverse.activity.AloneListReverseActivity"/>
+        <activity android:name=".test_jni.activity.MakeJNIActivity" />
+        <activity android:name=".test_rx_java.activity.RXJavaActivity" />
+        <activity android:name=".test_custom_date_picker.activity.DatePickerActivity" />
+        <activity android:name=".test_mpandroid_chart.activity.MPAndroidChartActivity" />
+        <activity android:name=".text_io.activity.FileOperationActivity" />
+        <activity android:name=".Snackbar" />
+        <activity android:name=".test_list_reverse.activity.AloneListReverseActivity" />
+        <activity android:name=".test_observer_model.ObserverModelActivity" />
+        <activity
+            android:name=".test_nfc.activity.NFCChangeAccountActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".test_custom_camera.SimpleActivity" />
+        <activity android:name=".test_custom_camera.PhotoActivity" />
+        <activity android:name=".test_custom_camera.PhotoFragmentActivity" />
+        <activity
+            android:name=".a"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".test_materical_dialog.acitivity.MatericalDialogActivity" />
+        <activity android:name=".customer_app_upload.TestAPPUpload" />
+        <activity android:name=".test_customer_hashmap.activity.TestCustomerHashMapActivity" />
+        <activity android:name=".test_mvp.view.TestMVPActivity" />
+        <activity android:name=".test_arithmetic.TestArithMeticActivity" />
+        <activity android:name=".test_anim.TestAnimActivity"/>
     </application>
 
 </manifest>

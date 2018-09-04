@@ -1,15 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    def globalConfiguration = rootProject.extensions.getByName("ext")
-    compileSdkVersion globalConfiguration.androidCompileSdkVersion
-    buildToolsVersion globalConfiguration.androidBuildToolsVersion
-
+    compileSdkVersion cfgs.compileSdkVersion
+    buildToolsVersion cfgs.buildToolsVersion
     defaultConfig {
-        minSdkVersion globalConfiguration.androidMinSdkVersion
-        targetSdkVersion globalConfiguration.androidTargetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion cfgs.minSdkVersion
+        targetSdkVersion cfgs.targetSdkVersion
+        versionCode cfgs.versionCode
+        versionName cfgs.versionName
 
     }
     buildTypes {
@@ -18,20 +16,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    buildToolsVersion '26.0.2'
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    def viewDependencies = rootProject.ext.viewDependencies
-    def dataDependencies = rootProject.ext.dataDependencies
-    compile viewDependencies.ijkplayer_java
-    compile viewDependencies.ijkplayer_armv7a
-    compile viewDependencies.ijkplayer_armv5
-    compile viewDependencies.ijkplayer_x86
-    compile viewDependencies.ijkplayer_exo
-    compile viewDependencies.transitionseverywhere
-    compile dataDependencies.videocache
-    compile androidDependencies.support_v4
-    compile androidDependencies.appcompat_v7
+    compile "tv.danmaku.ijk.media:ijkplayer-java:${cfgs.ijkplayer}"
+    compile "tv.danmaku.ijk.media:ijkplayer-armv7a:${cfgs.ijkplayer}"
+    compile "tv.danmaku.ijk.media:ijkplayer-armv5:${cfgs.ijkplayer}"
+    compile "tv.danmaku.ijk.media:ijkplayer-x86:${cfgs.ijkplayer}"
+    compile "tv.danmaku.ijk.media:ijkplayer-exo:${cfgs.ijkplayer}"
+    compile "com.andkulikov:transitionseverywhere:${cfgs.transitionseverywhere}"
+    compile "com.danikula:videocache:${cfgs.videocache}"
+    compile "com.android.support:appcompat-v7:${cfgs.androidSupportVersion}"
 }

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion cfgs.compileSdkVersion
+    buildToolsVersion cfgs.buildToolsVersion
     defaultConfig {
         applicationId "com.my_project"
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "a.0"
+        minSdkVersion cfgs.minSdkVersion
+        targetSdkVersion cfgs.targetSdkVersion
+        versionCode cfgs.versionCode
+        versionName cfgs.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
@@ -60,15 +60,10 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
     compile "com.android.support:appcompat-v7:${cfgs.androidSupportVersion}"
-    compile "com.android.support:recyclerview-v7:${cfgs.recyclerview}"
     compile "com.android.support.constraint:constraint-layout:${cfgs.constraintLayout}"
     annotationProcessor "com.github.bumptech.glide:glide:${cfgs.glide}"
     testCompile "junit:junit:${cfgs.junit}"
-    compile "com.jakewharton:butterknife:${cfgs.butterknife}"
     compile "com.android.support:design:${cfgs.design}"
     // Android 支持 Rxjava
     // 此处一定要注意使用RxJava2的版本
@@ -87,10 +82,19 @@ dependencies {
     compile files('libs/Msc.jar')
     compile project(':XRecycleView')
     compile project(':gsyVideoPlayer')
-    implementation files('libs/MPAndroidChart-v3.0.2.jar')
+    compile project(':picture_library')
+    compile files('libs/MPAndroidChart-v3.0.2.jar')
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
 }
-//configurations.all{
-//    resolutionStrategy {
-//        force "com.android.support:appcompat-v7:${cfgs.androidSupportVersion}"
-//    }
-//}
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion cfgs.androidSupportVersion
+            }
+        }
+    }
+}

@@ -9,14 +9,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.my_project.R;
-import com.my_project.a;
+import com.my_project.Snackbar;
+import com.my_project.customer_app_upload.TestAPPUpload;
+import com.my_project.test_anim.TestAnimActivity;
+import com.my_project.test_arithmetic.TestArithMeticActivity;
+import com.my_project.test_custom_camera.SimpleActivity;
 import com.my_project.test_custom_date_picker.activity.DatePickerActivity;
+import com.my_project.test_customer_hashmap.activity.TestCustomerHashMapActivity;
 import com.my_project.test_event_touch_intercapt.activity.TestDisPatchTouchEventActivity;
 import com.my_project.test_image_choose.activity.TestImageChooseActivity;
 import com.my_project.test_jni.activity.MakeJNIActivity;
 import com.my_project.test_list_reverse.activity.AloneListReverseActivity;
 import com.my_project.test_more_listview.activity.TestMoreListActivity;
+import com.my_project.test_more_thread.TestMoreThreadActivity;
 import com.my_project.test_mpandroid_chart.activity.MPAndroidChartActivity;
+import com.my_project.test_mvp.view.TestMVPActivity;
+import com.my_project.test_nfc.activity.NFCChangeAccountActivity;
 import com.my_project.test_player.activity.TestPlayerActivity;
 import com.my_project.test_progressbar.ui.TestProgressBar;
 import com.my_project.test_pulish_video.activity.TestPulishVideoActivity;
@@ -31,6 +39,8 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+
+import com.my_project.test_materical_dialog.acitivity.MatericalDialogActivity;
 
 /**
  * Created by com_c on 2017/12/26.
@@ -107,10 +117,37 @@ class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.ViewHolder> {
                         ctx.startActivity(new Intent(ctx, FileOperationActivity.class));
                         break;
                     case "测试":
-                        ctx.startActivity(new Intent(ctx, a.class));
+                        ctx.startActivity(new Intent(ctx, Snackbar.class));
                         break;
                     case "单链表反转":
                         ctx.startActivity(new Intent(ctx, AloneListReverseActivity.class));
+                        break;
+                    case "NFC读取写入":
+                        ctx.startActivity(new Intent(ctx, NFCChangeAccountActivity.class));
+                        break;
+                    case "自定义相册拍照":
+                        ctx.startActivity(new Intent(ctx, SimpleActivity.class));
+                        break;
+                    case "MatericalDialog":
+                        ctx.startActivity(new Intent(ctx, MatericalDialogActivity.class));
+                        break;
+                    case "测试自定义更新":
+                        ctx.startActivity(new Intent(ctx, TestAPPUpload.class));
+                        break;
+                    case "自定义HashMap简化实现":
+                        ctx.startActivity(new Intent(ctx, TestCustomerHashMapActivity.class));
+                        break;
+                    case "MVP模型":
+                        ctx.startActivity(new Intent(ctx, TestMVPActivity.class));
+                        break;
+                    case "Android多线程通信":
+                        ctx.startActivity(new Intent(ctx, TestMoreThreadActivity.class));
+                        break;
+                    case "冒泡快排二分法查找等算法":
+                        ctx.startActivity(new Intent(ctx, TestArithMeticActivity.class));
+                        break;
+                    case "Android动画":
+                        ctx.startActivity(new Intent(ctx, TestAnimActivity.class));
                         break;
                 }
             }

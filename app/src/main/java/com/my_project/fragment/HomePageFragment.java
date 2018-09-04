@@ -58,6 +58,15 @@ public class HomePageFragment extends Fragment {
         data.add("JavaIO流操作");
         data.add("测试");
         data.add("单链表反转");
+        data.add("NFC读取写入");
+        data.add("自定义相册拍照");
+        data.add("MatericalDialog");
+        data.add("测试自定义更新");
+        data.add("自定义HashMap简化实现");
+        data.add("MVP模型");
+        data.add("Android多线程通信");
+        data.add("冒泡快排二分法查找等算法");
+        data.add("Android动画");
     }
 
     private void initAdapter() {

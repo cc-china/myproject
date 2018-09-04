@@ -5,12 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ArrayAdapter;
 
 import com.my_project.R;
 import com.my_project.test_view_custom.adapter.CustomViewAdapter;
-import com.my_project.test_view_custom.model.AbilityResultBean;
-import com.my_project.test_view_custom.view.CustomAbilityView;
 
 import java.util.ArrayList;
 import java.util.List;

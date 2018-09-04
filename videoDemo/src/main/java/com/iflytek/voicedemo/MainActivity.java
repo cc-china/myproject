@@ -1,5 +1,6 @@
 package com.iflytek.voicedemo;
 
+import com.bumptech.glide.Glide;
 import com.iflytek.sunflower.FlowerCollector;
 import com.iflytek.voicedemo.faceonline.OnlineFaceDemo;
 import com.iflytek.voicedemo.vocalverify.VocalVerifyDemo;
@@ -19,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -138,6 +140,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		FlowerCollector.onPageEnd(TAG);
 		FlowerCollector.onPause(MainActivity.this);
 		super.onPause();
+		String url = "";
+        ImageView imageView = (ImageView) findViewById(R.id.listview_main);
+        Glide.with(this).load(url).into(imageView);
 	}
 
 	private void requestPermissions(){

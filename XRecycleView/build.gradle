@@ -2,14 +2,14 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 //-----------------上传到jcenter--------------------
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion cfgs.compileSdkVersion
+    buildToolsVersion cfgs.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion cfgs.minSdkVersion
+        targetSdkVersion cfgs.targetSdkVersion
+        versionCode cfgs.versionCode
+        versionName cfgs.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
@@ -34,12 +34,9 @@ publish {
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support:recyclerview-v7:26.0.0'
-    compile 'com.android.support:design:26.+'
-    compile 'com.jakewharton:butterknife:7.0.0'
-    testCompile 'junit:junit:4.12'
+    compile "com.android.support:appcompat-v7:${cfgs.androidSupportVersion}"
+    compile "com.android.support:recyclerview-v7:${cfgs.recyclerview}"
+    compile "com.android.support:design:${cfgs.design}"
+    compile "com.jakewharton:butterknife:${cfgs.butterknife}"
+    testCompile "junit:junit:${cfgs.junit}"
 }

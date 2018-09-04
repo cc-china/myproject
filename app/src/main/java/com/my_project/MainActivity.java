@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -63,8 +65,23 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         requestPermissions();
         initPageAdapter();
+        testHandler();
         sqLiteDB = new SQLiteDB(this);
     }
+
+    private void testHandler() {
+        Message message = new Message();
+        message.what = 1;
+        message.arg1 = 1;
+        handler.sendMessage(message);
+    }
+
+    Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            return false;
+        }
+    });
 
     private void initPageAdapter() {
 //        vp_fragment.setNoScroll(true);
@@ -153,12 +170,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private long exitTime = 0;
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && event.getAction() == KeyEvent.ACTION_DOWN) {
             if ((System.currentTimeMillis() - exitTime) > 2000) {
-                Snackbar.make(getWindow().getDecorView(),"再按一次退出程序",Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(getWindow().getDecorView(), "再按一次退出程序", Snackbar.LENGTH_SHORT).show();
                 Toast.makeText(MainActivity.this, "再按一次退出程序",
                         Toast.LENGTH_SHORT).show();
                 exitTime = System.currentTimeMillis();

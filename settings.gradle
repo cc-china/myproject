@@ -1,1 +1,1 @@
-include ':app', ':XRecycleView', ':gsyVideoPlayer', ':videoDemo'
+include ':app', ':XRecycleView', ':gsyVideoPlayer', ':videoDemo', ':picture_library', ':ucrop'
