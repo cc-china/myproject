@@ -16,8 +16,8 @@ import com.my_project.R;
 public class DatePicker extends LinearLayout {
 
     private YearPicker mYearPicker;
-    private MonthPicker mMonthPicker;
-    private DayPicker mDayPicker;
+//    private MonthPicker mMonthPicker;
+//    private DayPicker mDayPicker;
 
     public DatePicker(Context context) {
         this(context, null);
@@ -43,26 +43,26 @@ public class DatePicker extends LinearLayout {
         mYearPicker.setOnYearSelectedListener(new YearPicker.OnYearSelectedListener() {
             @Override
             public void onYearSelected(int year) {
-                int month = getMonth();
-                mDayPicker.setMonth(year,month);
+//                int month = getMonth();
+//                mDayPicker.setMonth(year,month);
             }
         });
-        mMonthPicker = view.findViewById(R.id.monthPicker_layout_date);
-        mMonthPicker.setOnMonthSelectedLinstener(new MonthPicker.OnMonthSelectedListener() {
-            @Override
-            public void onMonthSelected(int month) {
-                int year = getYear();
-                mDayPicker.setMonth(year,month);
-            }
-        });
-        mDayPicker = view.findViewById(R.id.dayPicker_layout_date);
+//        mMonthPicker = view.findViewById(R.id.monthPicker_layout_date);
+//        mMonthPicker.setOnMonthSelectedLinstener(new MonthPicker.OnMonthSelectedListener() {
+//            @Override
+//            public void onMonthSelected(int month) {
+//                int year = getYear();
+//                mDayPicker.setMonth(year,month);
+//            }
+//        });
+//        mDayPicker = view.findViewById(R.id.dayPicker_layout_date);
     }
 
 
     //拿到月份
-    private int getMonth(){
-        return mMonthPicker.getmSelectedMonth();
-    }
+//    private int getMonth(){
+//        return mMonthPicker.getmSelectedMonth();
+//    }
     //拿到年份
     private int getYear(){
         return mYearPicker.getSelectedYear();

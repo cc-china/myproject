@@ -8,6 +8,7 @@ android {
         targetSdkVersion cfgs.targetSdkVersion
         versionCode cfgs.versionCode
         versionName cfgs.versionName
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
@@ -84,6 +85,7 @@ dependencies {
     compile project(':gsyVideoPlayer')
     compile project(':picture_library')
     compile files('libs/MPAndroidChart-v3.0.2.jar')
+    compile 'com.android.support:multidex:1.0.1'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'

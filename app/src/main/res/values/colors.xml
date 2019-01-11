@@ -42,4 +42,7 @@
     <color name="divider">#B6B6B6</color>
     <color name="color_c51">#f94c51</color>
     <color name="color_green">#43c117</color>
+
+    <color name="color_B0">#B0B0B0</color>
+    <color name="color_DE">#DEDCDE</color>
 </resources>

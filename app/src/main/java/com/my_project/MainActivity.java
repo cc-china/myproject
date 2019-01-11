@@ -1,11 +1,16 @@
 package com.my_project;
 
 import android.Manifest;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
+import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -13,20 +18,24 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.iflytek.cloud.SpeechUtility;
 import com.my_project.fragment.DynamicFragment;
 import com.my_project.fragment.HomePageFragment;
 import com.my_project.fragment.MessageFragment;
 import com.my_project.fragment.MyDataFragment;
 import com.my_project.sqlitedatabase.SQLiteDB;
+import com.my_project.test_bug.TempraryActivity;
 import com.my_project.test_more_listview.DBModel;
+import com.my_project.test_two_process.GuardianProcessService;
+import com.my_project.test_two_process.LocalService;
 
 import java.util.ArrayList;
 
@@ -44,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
     ViewPager vp_fragment;
     @Bind(R.id.tl_tab)
     TabLayout tl_tab;
+    @Bind(R.id.btn_open_local_service)
+    Button btn_open_local_service;
+    @Bind(R.id.btn_off_local_service)
+    Button btn_off_local_service;
+    @Bind(R.id.btn_off_remote_service)
+    Button btn_off_remote_service;
     //每一个分类名称
     private String[] mTitles = new String[4];
     //对应的fragment集合
@@ -121,16 +136,60 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.btn_insert_data})
+    @OnClick({R.id.btn_insert_data,
+            R.id.btn_open_local_service,
+            R.id.btn_off_local_service,
+            R.id.btn_off_remote_service})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_insert_data:
                 //为数据库插入数据;
-                sqLiteDB.openDB();
-                insertData();
+//                sqLiteDB.openDB();
+//                insertData();
+                startActivity(new Intent(MainActivity.this,TempraryActivity.class));
+                break;
+            case R.id.btn_open_local_service:
+                startService(new Intent(MainActivity.this, LocalService.class));
+                startService(new Intent(this
+                        , GuardianProcessService.class));
+                bindService(new Intent(this
+                        , GuardianProcessService.class), connection2, BIND_AUTO_CREATE);
+                break;
+            case R.id.btn_off_local_service:
+                stopService(new Intent(MainActivity.this, LocalService.class));
+                break;
+            case R.id.btn_off_remote_service:
+                stopService(new Intent(MainActivity.this, GuardianProcessService.class));
                 break;
         }
     }
+
+
+    private ServiceConnection connection2 = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            //正在连接
+            IProcessAidl aidl = IProcessAidl.Stub.asInterface(service);
+            try {
+                String serviceName = aidl.getServiceName();
+                Log.e("3333Local", serviceName);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            //断开连接，重新拉起服务
+            Log.e("3333LocalService", "唤醒remote进程");
+            Toast.makeText(MainActivity.this, "唤醒remote进程", 0).show();
+            startService(new Intent(MainActivity.this
+                    , GuardianProcessService.class));
+            bindService(new Intent(MainActivity.this
+                    , GuardianProcessService.class), connection2, BIND_AUTO_CREATE);
+        }
+    };
+
 
     private void insertData() {
         DBModel model = new DBModel();

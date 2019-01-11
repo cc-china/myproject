@@ -17,7 +17,7 @@ import java.util.zip.Inflater;
  * Created by com_c on 2018/1/31.
  */
 
-public class SlideListView extends LinearLayout {
+public class SlideListView extends LinearLayout{
 
     private static final int TAN = 2;
     private int mHolderWidth = 90;

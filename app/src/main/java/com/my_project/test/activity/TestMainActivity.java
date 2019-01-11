@@ -62,7 +62,7 @@ public class TestMainActivity extends Activity {
     }
 
     private void initView() {
-        int[] mList = {R.mipmap.a, R.mipmap.b, R.mipmap.c, R.mipmap.d};
+        int[] mList = {R.mipmap.e, R.mipmap.e, R.mipmap.e, R.mipmap.e};
         settingShufflingFigure(vpPager, mList);
         mHandler.sendEmptyMessageDelayed(2, 4000);
     }

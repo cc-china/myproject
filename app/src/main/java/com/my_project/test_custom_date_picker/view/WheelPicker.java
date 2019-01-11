@@ -265,8 +265,9 @@ public class WheelPicker<T> extends View {
         int height = (mTextMaxHeight + mItemHeightSpace) * getVisibilityItemCount();
         width += getPaddingLeft() + getPaddingRight();
         height += getPaddingTop() + getPaddingBottom();
-        setMeasuredDimension(measureSize(modeWidthMeasureSpec, sizeWidthMeasureSpec, width)
-                , measureSize(modeHeightMeasureSpec, sizeheightMeasureSpec, height));
+        int w = measureSize(modeWidthMeasureSpec, sizeWidthMeasureSpec, width);
+        int h = measureSize(modeHeightMeasureSpec, sizeheightMeasureSpec, height);
+        setMeasuredDimension(w, h);
     }
 
     /**

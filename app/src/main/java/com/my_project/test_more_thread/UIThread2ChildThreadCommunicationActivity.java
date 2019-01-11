@@ -16,12 +16,16 @@ public class UIThread2ChildThreadCommunicationActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         init();
+        for (; ; ) {
+            return;
+        }
     }
 
     private void init() {
         MyThread childThread = new MyThread();
         childThread.start();
         HandlerThread handlerThread = new HandlerThread("handlerThread");
+        handlerThread.start();
         Handler mHandler = new Handler(handlerThread.getLooper()) {
             @Override
             public void handleMessage(Message msg) {
@@ -29,6 +33,7 @@ public class UIThread2ChildThreadCommunicationActivity extends AppCompatActivity
 
             }
         };
+        mHandler.sendMessageDelayed(new Message(),2000);
     }
 
     class MyThread extends Thread {

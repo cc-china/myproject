@@ -42,4 +42,31 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="50dp"
         android:text="插入数据库数据" />
+
+    <Button
+        android:id="@+id/btn_open_local_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_insert_data"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="开启Local服务" />
+
+    <Button
+        android:id="@+id/btn_off_local_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_open_local_service"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="关闭Local服务" />
+
+    <Button
+        android:id="@+id/btn_off_remote_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_off_local_service"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="关闭remote服务" />
 </RelativeLayout>

@@ -62,4 +62,31 @@
         <attr name="startYear" format="integer"/>
         <attr name="endYear" format="integer"/>
     </declare-styleable>
+    
+    
+    <!--做一个天气预报下雨动画-->
+    <declare-styleable name="weather_rains">
+    <!--雨滴的颜色-->
+        <attr name="color_rains" format="color"/>
+    <!--左边云的颜色-->
+        <attr name="color_left_cloud" format="color"/>
+    <!--右边云的颜色-->
+        <attr name="color_right_cloud" format="color"/>
+    <!--可同时存在的雨滴最大数量-->
+        <attr name="num_max_rains" format="integer"/>
+    <!--每个雨滴之间创建的时间间隔-->
+        <attr name="time_between_rains" format="float"/>
+    <!--每个雨滴的最小长度-->
+        <attr name="length_min_rains" format="integer"/>
+    <!--每个雨滴的最大长度-->
+        <attr name="length_max_rains" format="integer"/>
+    <!--雨滴的大小-->
+        <attr name="length_rains" format="integer"/>
+    <!--雨滴的最小移动速度-->
+        <attr name="velocity_move_min_rains" format="float"/>
+    <!--雨滴的最大移动速度-->
+        <attr name="velocity_move_max_rains" format="float"/>
+    <!--雨滴的斜率-->
+        <attr name="slope_rains" format="float"/>
+    </declare-styleable>
 </resources>

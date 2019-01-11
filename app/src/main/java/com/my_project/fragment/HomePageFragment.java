@@ -67,6 +67,10 @@ public class HomePageFragment extends Fragment {
         data.add("Android多线程通信");
         data.add("冒泡快排二分法查找等算法");
         data.add("Android动画");
+        data.add("子线程创建Handler");
+        data.add("aidl服务端");
+        data.add("H5页面与Android相互调用");
+        data.add("人脸识别SDK");
     }
 
     private void initAdapter() {

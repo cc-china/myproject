@@ -22,6 +22,7 @@ import java.util.ArrayList;
  */
 
 public class CustomAbilityView extends View {
+    private final Context context;
     //声明view是几边形
     private int n;
 
@@ -41,6 +42,8 @@ public class CustomAbilityView extends View {
     private Paint linePaint;//画线条的画笔
     private Paint textPaint;//画文字的笔
     private AbilityResultBean data;//设置view的源数据对象，有不同的属性
+    private int cx;
+    private int cy;
 
     public CustomAbilityView(Context context) {
         //使用this，使得不论如何初始化都会调用第三个构造方法
@@ -54,9 +57,8 @@ public class CustomAbilityView extends View {
 
     public CustomAbilityView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initSize(context);
-        initPoints(context);
-        initPaint(context);
+        this.context = context;
+
     }
 
     /**
@@ -111,16 +113,17 @@ public class CustomAbilityView extends View {
     /**
      * 初始化一些固定的数据
      */
-    private void initSize(Context context) {
+    private void initSize() {
         n = 7;//七边形
-        R = Dp2PxF.dp2pxF(context, 100);//半径
+        R = Math.min(cx, cy) / 2 - 100;//半径
+//        R = Dp2PxF.dp2pxF(context, Math.min(cx,cy)/2);//半径
         intervalCount = 4;//4层
         angle = (float) ((2 * Math.PI) / n);//圆心角 360°除以 边的个数 = 顶点到圆心的对角线夹角 （必须是正几边形）
         //屏幕宽度 ，单位是像素
         int widthPixels = getResources().getDisplayMetrics().widthPixels;
         //设置控件方向为正方向
-        viewWidth = widthPixels;
-        viewHeight = widthPixels;
+//        viewWidth = widthPixels;
+//        viewHeight = widthPixels;
     }
 
     /**
@@ -145,10 +148,24 @@ public class CustomAbilityView extends View {
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+        cx = widthSize;
+        cy = heightSize;
         Log.e("111widthSize", "" + widthSize);
         Log.e("111heightSize", "" + heightSize);
         //设置view的最终视图大小
-        setMeasuredDimension(viewWidth, viewHeight);
+        setMeasuredDimension(widthMeasureSpec, heightMeasureSpec);
+        viewWidth = cx;
+        viewHeight = cy;
+        initSize();
+        initPoints(context);
+        initPaint(context);
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+
+        Log.e("111onSizeChanged", "w" + w + "h" + h + "oldw" + oldw + "oldh" + oldh);
     }
 
     @Override

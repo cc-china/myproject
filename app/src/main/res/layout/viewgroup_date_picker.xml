@@ -8,22 +8,9 @@
 
     <com.my_project.test_custom_date_picker.view.date.YearPicker
         android:id="@+id/yearPicker_layout_date"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         app:halfVisibleItemCount="2" />
 
-    <com.my_project.test_custom_date_picker.view.date.MonthPicker
-        android:id="@+id/monthPicker_layout_date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:halfVisibleItemCount="2" />
 
-    <com.my_project.test_custom_date_picker.view.date.DayPicker
-        android:id="@+id/dayPicker_layout_date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:halfVisibleItemCount="2" />
 </LinearLayout>

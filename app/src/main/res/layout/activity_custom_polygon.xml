@@ -6,6 +6,14 @@
 
     <com.my_project.test_view_custom.view.CustomAbilityView
         android:id="@+id/view_polygon"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <com.my_project.test_view_custom.view.CustomerCircle
+        android:id="@+id/c_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/black"/>
 </LinearLayout>

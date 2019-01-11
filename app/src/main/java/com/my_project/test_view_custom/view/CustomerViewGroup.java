@@ -125,30 +125,30 @@ public class CustomerViewGroup extends LinearLayout {
                         /**
                          * 设置View回弹的效果
                          * */
-                        ValueAnimator valueAnimatorX = ValueAnimator.ofFloat(mDragView.getX(), mDragViewOrigX);
-                        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                            @Override
-                            public void onAnimationUpdate(ValueAnimator animation) {
-                                mDragView.setX((float) animation.getAnimatedValue());
-                            }
-                        });
-                        ValueAnimator valueAnimatorY = ValueAnimator.ofFloat(mDragView.getY(), mDragViewOrigY);
-                        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                            @Override
-                            public void onAnimationUpdate(ValueAnimator animation) {
-                                mDragView.setY((float) animation.getAnimatedValue());
-                            }
-                        });
-                        AnimatorSet animatorSet = new AnimatorSet();
-                        animatorSet.play(valueAnimatorX).with(valueAnimatorY);
-                        animatorSet.addListener(new AnimatorListenerAdapter() {
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                super.onAnimationEnd(animation);
-                                mDragView = null;
-                            }
-                        });
-                        animatorSet.start();
+//                        ValueAnimator valueAnimatorX = ValueAnimator.ofFloat(mDragView.getX(), mDragViewOrigX);
+//                        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//                            @Override
+//                            public void onAnimationUpdate(ValueAnimator animation) {
+//                                mDragView.setX((float) animation.getAnimatedValue());
+//                            }
+//                        });
+//                        ValueAnimator valueAnimatorY = ValueAnimator.ofFloat(mDragView.getY(), mDragViewOrigY);
+//                        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//                            @Override
+//                            public void onAnimationUpdate(ValueAnimator animation) {
+//                                mDragView.setY((float) animation.getAnimatedValue());
+//                            }
+//                        });
+//                        AnimatorSet animatorSet = new AnimatorSet();
+//                        animatorSet.play(valueAnimatorX).with(valueAnimatorY);
+//                        animatorSet.addListener(new AnimatorListenerAdapter() {
+//                            @Override
+//                            public void onAnimationEnd(Animator animation) {
+//                                super.onAnimationEnd(animation);
+//                                mDragView = null;
+//                            }
+//                        });
+//                        animatorSet.start();
                     } else {
                         mDragView = null;
                     }
@@ -179,8 +179,10 @@ public class CustomerViewGroup extends LinearLayout {
 //        for (int i = 0; i < getChildCount(); i++) {
         for (int i = getChildCount() - 1; i >= 0; i--) {
             View view = getChildAt(i);
-            rect.set((int) view.getX(), (int) view.getY(), (int) view.getX() + (int) view.getWidth()
-                    , (int) view.getY() + view.getHeight());
+            rect.set((int) view.getX(),
+                     (int) view.getY(),
+                    (int) view.getX() + (int) view.getWidth(),
+                    (int) view.getY() + view.getHeight());
             if (rect.contains((int) event.getX(), (int) event.getY())) {
                 //标记被拖拽的child
                 mDragView = view;

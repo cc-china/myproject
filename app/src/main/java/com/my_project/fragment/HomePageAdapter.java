@@ -11,17 +11,21 @@ import android.widget.Button;
 import com.my_project.R;
 import com.my_project.Snackbar;
 import com.my_project.customer_app_upload.TestAPPUpload;
+import com.my_project.test_aidl.AidlActivity;
+import com.my_project.test_android_h5.Android2JavaScript;
 import com.my_project.test_anim.TestAnimActivity;
 import com.my_project.test_arithmetic.TestArithMeticActivity;
 import com.my_project.test_custom_camera.SimpleActivity;
 import com.my_project.test_custom_date_picker.activity.DatePickerActivity;
 import com.my_project.test_customer_hashmap.activity.TestCustomerHashMapActivity;
 import com.my_project.test_event_touch_intercapt.activity.TestDisPatchTouchEventActivity;
+import com.my_project.test_face_pp.FaceppActivity;
 import com.my_project.test_image_choose.activity.TestImageChooseActivity;
 import com.my_project.test_jni.activity.MakeJNIActivity;
 import com.my_project.test_list_reverse.activity.AloneListReverseActivity;
 import com.my_project.test_more_listview.activity.TestMoreListActivity;
 import com.my_project.test_more_thread.TestMoreThreadActivity;
+import com.my_project.test_more_thread.UIThread2ChildThreadCommunicationActivity;
 import com.my_project.test_mpandroid_chart.activity.MPAndroidChartActivity;
 import com.my_project.test_mvp.view.TestMVPActivity;
 import com.my_project.test_nfc.activity.NFCChangeAccountActivity;
@@ -148,6 +152,18 @@ class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.ViewHolder> {
                         break;
                     case "Android动画":
                         ctx.startActivity(new Intent(ctx, TestAnimActivity.class));
+                        break;
+                    case "子线程创建Handler":
+                        ctx.startActivity(new Intent(ctx, UIThread2ChildThreadCommunicationActivity.class));
+                        break;
+                    case "aidl服务端":
+                        ctx.startActivity(new Intent(ctx, AidlActivity.class));
+                        break;
+                    case "H5页面与Android相互调用":
+                        ctx.startActivity(new Intent(ctx, Android2JavaScript.class));
+                        break;
+                    case "人脸识别SDK":
+                        ctx.startActivity(new Intent(ctx, FaceppActivity.class));
                         break;
                 }
             }

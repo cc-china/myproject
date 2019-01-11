@@ -40,6 +40,7 @@ public class TestViewCustomActivity extends Activity {
         mList.add("音量调节的自定义view");
         mList.add("ViewGrounp自定义view");
         mList.add("仿斗鱼拼图验证码");
+        mList.add("雨雪天气自定义view");
     }
 
     private void initAdapter() {

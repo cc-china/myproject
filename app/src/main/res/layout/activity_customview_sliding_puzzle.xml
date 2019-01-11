@@ -14,8 +14,8 @@
 
         <com.my_project.test_view_custom.view.CustomerPuzzleCodeView
             android:id="@+id/view_customer_puzzle_code"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:scaleType="fitXY"
             android:src="@mipmap/beautifulgirls"

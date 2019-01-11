@@ -14,6 +14,7 @@ import com.my_project.test_view_custom.activity.CustomAttributeActivity;
 import com.my_project.test_view_custom.activity.CustomPolygonActivity;
 import com.my_project.test_view_custom.activity.CustomViewGrounpActivity;
 import com.my_project.test_view_custom.activity.CustomViewSlidingPuzzleActivity;
+import com.my_project.test_view_custom.activity.CustomerWeatherRainsActivity;
 
 import java.util.List;
 
@@ -50,16 +51,19 @@ public class CustomViewAdapter extends RecyclerView.Adapter<CustomViewAdapter.Vi
                         ctx.startActivity(new Intent(ctx, CustomPolygonActivity.class));
                         break;
                     case "自定义属性":
-                        ctx.startActivity(new Intent(ctx,CustomAttributeActivity.class));
+                        ctx.startActivity(new Intent(ctx, CustomAttributeActivity.class));
                         break;
                     case "音量调节的自定义view":
-                        ctx.startActivity(new Intent(ctx,CustomAdjustVolumeActivity.class));
+                        ctx.startActivity(new Intent(ctx, CustomAdjustVolumeActivity.class));
                         break;
                     case "ViewGrounp自定义view":
-                        ctx.startActivity(new Intent(ctx,CustomViewGrounpActivity.class));
+                        ctx.startActivity(new Intent(ctx, CustomViewGrounpActivity.class));
                         break;
-                        case "仿斗鱼拼图验证码":
-                        ctx.startActivity(new Intent(ctx,CustomViewSlidingPuzzleActivity.class));
+                    case "仿斗鱼拼图验证码":
+                        ctx.startActivity(new Intent(ctx, CustomViewSlidingPuzzleActivity.class));
+                        break;
+                    case "雨雪天气自定义view":
+                        ctx.startActivity(new Intent(ctx, CustomerWeatherRainsActivity.class));
                         break;
                 }
             }

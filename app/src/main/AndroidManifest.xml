@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.my_project">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -29,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".internal_obj.TestActivity" />
         <activity android:name=".test.activity.TestMainActivity">
 
         </activity>
@@ -39,7 +41,7 @@
         <activity android:name=".test_progressbar.ui.TestProgressBar" />
         <activity android:name=".test_system_video.activity.TestVideoActivity" />
         <activity android:name=".test_touch_event.activity.TestTouchEventActivity" />
-        <activity android:name=".TestActivity" />
+
         <activity android:name=".test_view_custom.activity.TestViewCustomActivity" />
         <activity android:name=".test_more_listview.activity.TestMoreListActivity" />
         <activity android:name=".test_more_listview.activity.OrganizationDetails" />
@@ -74,20 +76,49 @@
         <activity android:name=".test_custom_camera.PhotoActivity" />
         <activity android:name=".test_custom_camera.PhotoFragmentActivity" />
         <activity
-            android:name=".a"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="*/*" />
-            </intent-filter>
-        </activity>
+            android:name=".test_bug.TempraryActivity"
+            android:launchMode="singleTask" />
         <activity android:name=".test_materical_dialog.acitivity.MatericalDialogActivity" />
         <activity android:name=".customer_app_upload.TestAPPUpload" />
         <activity android:name=".test_customer_hashmap.activity.TestCustomerHashMapActivity" />
         <activity android:name=".test_mvp.view.TestMVPActivity" />
         <activity android:name=".test_arithmetic.TestArithMeticActivity" />
-        <activity android:name=".test_anim.TestAnimActivity"/>
+        <activity android:name=".test_anim.TestAnimActivity" />
+        <activity android:name=".test_more_thread.UIThread2ChildThreadCommunicationActivity" />
+        <activity android:name=".internal_obj.InnerTestActivity" />
+        <activity android:name=".test_aidl.AidlActivity" />
+        <activity android:name=".test_android_h5.Android2JavaScript" />
+        <activity android:name=".test_view_custom.activity.CustomerWeatherRainsActivity" />
+        <activity android:name=".test_face_pp.FaceppActivity" />
+        <activity android:name=".test_face_pp.SufaceViewActivity" />
+
+        <service
+            android:name=".test_aidl.MyAidlService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.test_aidl.aidl" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".test_two_process.LocalService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.my_project.test_two_process.LocalService" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".test_two_process.GuardianProcessService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":GuardianProcess">
+            <intent-filter>
+                <action android:name="com.my_project.test_two_process.GuardianProcessService" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

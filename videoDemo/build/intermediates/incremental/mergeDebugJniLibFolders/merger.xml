@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\as_space\demo\my_project\videoDemo\libs"><file name="armeabi/libmsc.so" path="D:\as_space\demo\my_project\videoDemo\libs\armeabi\libmsc.so"/><file name="Msc.jar" path="D:\as_space\demo\my_project\videoDemo\libs\Msc.jar"/><file name="Sunflower.jar" path="D:\as_space\demo\my_project\videoDemo\libs\Sunflower.jar"/></source></dataSet><dataSet config="debug"><source path="D:\as_space\demo\my_project\videoDemo\src\debug\jniLibs"/></dataSet></merger>

@@ -29,7 +29,7 @@ public class TestArithMeticActivity extends AppCompatActivity {
         //选择排序
         SortUtils.chooseSort(arr);
 
-        //快速排序
+        //归并排序
         int[] arr1 = {0, 1, 2, 5, 8};
         int[] arr2 = {1, 2, 5, 8};
         SortUtils.mergeSort(arr1, arr2);

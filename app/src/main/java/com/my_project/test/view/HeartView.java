@@ -80,11 +80,5 @@ public class HeartView extends View {
         Paint textPaint = new Paint();
         textPaint.setTextSize(Dp2PxF.sp2pxF(ctx,35));
         textPaint.setColor(ctx.getResources().getColor(R.color.colorAccent));
-        canvas.drawText("萌萌同学，快乐2018",30,400,textPaint);
-        textPaint.setTextSize(Dp2PxF.sp2pxF(ctx,15));
-        textPaint.setColor(ctx.getResources().getColor(R.color.textRed));
-        canvas.drawText("第一次送你礼物",460,150,textPaint);
-        textPaint.setColor(ctx.getResources().getColor(R.color.colorAccent));
-        canvas.drawText("你会喜欢吗，❤",460,250,textPaint);
     }
 }
