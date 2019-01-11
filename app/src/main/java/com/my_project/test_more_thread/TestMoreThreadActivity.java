@@ -1,4 +1,4 @@
-package com.my_project.test_more_thread;
+﻿package com.my_project.test_more_thread;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import java.net.URL;
 
 /**
  * Created by com_c on 2018/8/22.
+ * 测试
  */
 
 public class TestMoreThreadActivity extends AppCompatActivity {
