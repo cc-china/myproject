@@ -38,6 +38,7 @@ public class TestMoreThreadActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
+                 
         }
         //任务执行完成后
         @Override
