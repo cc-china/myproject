@@ -2,7 +2,7 @@ package com.my_project.test_more_thread.customer;
 
 import android.util.Log;
 
-import com.my_project.test_more_thread.Products;
+import com.my_project.test_more_thread.goods.Products;
 
 /**
  * Created by Administrator on 2019\2\25 0025.
@@ -25,20 +25,13 @@ public class _Customer implements Runnable {
     public void run() {
         while (true) {
             synchronized (Products.class) {
-                if (!p.isFlag()) {
-                    try {
-                        Products.class.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                while (!p.isFlag()) {
+                    try {Products.class.wait(); } catch (InterruptedException e) {e.printStackTrace();}
                 }
                 Log.e("_Customer", Thread.currentThread().getName() + "----消费者------" + consume());
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException i) {
-                }
+                try {Thread.sleep(1000);} catch (InterruptedException i) {}
                 p.setFlag(false);
-                Products.class.notify();
+                Products.class.notifyAll();
             }
         }
     }

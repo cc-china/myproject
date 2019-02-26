@@ -1,4 +1,4 @@
-package com.my_project.test_more_thread;
+package com.my_project.test_more_thread.goods;
 
 /**
  * Created by Administrator on 2019\2\25 0025.

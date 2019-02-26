@@ -6,8 +6,16 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.my_project.test_more_thread.basket._Basket;
 import com.my_project.test_more_thread.customer._Customer;
+import com.my_project.test_more_thread.customer._Customer_1;
+import com.my_project.test_more_thread.customer._Customer_2;
+import com.my_project.test_more_thread.goods.Products;
+import com.my_project.test_more_thread.goods.Products_1;
+import com.my_project.test_more_thread.goods.Products_2;
 import com.my_project.test_more_thread.product.ProductFactory;
+import com.my_project.test_more_thread.product.ProductFactory_1;
+import com.my_project.test_more_thread.product.ProductFactory_2;
 
 import java.net.URL;
 
@@ -22,17 +30,55 @@ public class TestMoreThreadActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initView();
+//        initView();
+//        initView1();
+        initView2();
     }
 
     private void initView() {
         Products product = new Products();
         ProductFactory pro = new ProductFactory(product);
         _Customer con = new _Customer(product);
-        Thread p = new Thread(pro);
-        Thread c = new Thread(con);
-        p.start();
-        c.start();
+        Thread pro_t1 = new Thread(pro); //生产线程1
+        Thread pro_t2 = new Thread(pro); //生产线程2
+        Thread con_t1 = new Thread(con); //消费线程1
+        Thread con_t2 = new Thread(con); //消费线程2
+        pro_t1.start();
+        pro_t2.start();
+        con_t1.start();
+        con_t2.start();
+
+    }
+
+    private void initView1() {
+        Products_1 product = new Products_1();
+        ProductFactory_1 pro = new ProductFactory_1(product);
+        _Customer_1 con = new _Customer_1(product);
+        Thread pro_t1 = new Thread(pro); //生产线程1
+        Thread pro_t2 = new Thread(pro); //生产线程2
+        Thread con_t1 = new Thread(con); //消费线程1
+        Thread con_t2 = new Thread(con); //消费线程2
+        pro_t1.start();
+        pro_t2.start();
+        con_t1.start();
+        con_t2.start();
+
+    }
+
+    private void initView2() {
+        _Basket b = new _Basket(20); // the basket size = 20
+        ProductFactory_2 pro = new ProductFactory_2(b);
+        _Customer_2 con = new _Customer_2(b);
+        Thread pro_t1 = new Thread(pro);
+        Thread pro_t2 = new Thread(pro);
+        Thread con_t1 = new Thread(con);
+        Thread con_t2 = new Thread(con);
+        Thread con_t3 = new Thread(con);
+        pro_t1.start();
+        pro_t2.start();
+        con_t1.start();
+        con_t2.start();
+        con_t3.start();
 
     }
 
