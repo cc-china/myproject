@@ -71,6 +71,7 @@ public class HomePageFragment extends Fragment {
         data.add("aidl服务端");
         data.add("H5页面与Android相互调用");
         data.add("人脸识别SDK");
+        data.add("抽奖转盘");
     }
 
     private void initAdapter() {

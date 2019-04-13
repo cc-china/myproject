@@ -47,7 +47,7 @@ public class TestRefershingDataActivity extends Activity {
         recyclerview.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
 
 
-       final LinearLayoutManager manager = new LinearLayoutManager(this);
+        final LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerview.setLayoutManager(manager);
         final TestRefreshingAdapter adapter = new TestRefreshingAdapter(this, mList);

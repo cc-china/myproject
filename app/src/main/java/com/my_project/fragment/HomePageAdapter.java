@@ -36,6 +36,7 @@ import com.my_project.test_refreing_data.activity.TestRefershingDataActivity;
 import com.my_project.test_rx_java.activity.RXJavaActivity;
 import com.my_project.test_system_video.activity.TestVideoActivity;
 import com.my_project.test_touch_event.activity.TestTouchEventActivity;
+import com.my_project.test_view_custom.activity.CustomerTurnTableActivity;
 import com.my_project.test_view_custom.activity.TestViewCustomActivity;
 import com.my_project.text_io.activity.FileOperationActivity;
 
@@ -50,11 +51,11 @@ import com.my_project.test_materical_dialog.acitivity.MatericalDialogActivity;
  * Created by com_c on 2017/12/26.
  */
 
-class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.ViewHolder> {
+public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.ViewHolder> {
     private Activity ctx;
     private List<String> mList;
 
-    public HomePageAdapter(Activity activity, List<String> list) {
+     HomePageAdapter(Activity activity, List<String> list) {
         this.ctx = activity;
         this.mList = list;
     }
@@ -66,7 +67,8 @@ class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder,  int p) {
+        final int position = p;
         holder.tvName.setText(mList.get(position));
         holder.tvName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,6 +166,9 @@ class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.ViewHolder> {
                         break;
                     case "人脸识别SDK":
                         ctx.startActivity(new Intent(ctx, FaceppActivity.class));
+                        break;
+                    case "抽奖转盘":
+                        ctx.startActivity(new Intent(ctx, CustomerTurnTableActivity.class));
                         break;
                 }
             }

@@ -1,13 +1,13 @@
 <pre name="code" class="html"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
             <title>这里是一个H5页面</title>
         </head>
 
         <body>
             <p id="ptext">点击按键0 执行android中的 public void androidFunc(){} 方法</p>
-            <input onclick="button.androidFunc()"  type="button" value="打招呼">
+            <input onclick="button.androidFunc()" type="button" value="打招呼">
             <!--<Button id="buttonId0" class="buttonClass" onclick="javascript:button.androidFunc()">H5调用Android</Button>-->
 
             <script>
@@ -28,6 +28,80 @@
                     alert("Android调用js方法");
                 }
             </script>
+        <script>
+            function onb(v) {
+	var arr = new Array();
+	var arr0;
+	var arr1;
+	var r = /^\+?[1-9][0-9]*$/;　　//正整数
+	if(v.indexOf(',') > 0) {
+		arr = v.split(",");
+		if(arr.length = 2) {
+			arr0 = arr[0];
+			arr1 = arr[1];
+			if((typeof arr0 == "undefined" || arr0 == null || arr0 == "")||(typeof arr1 == "undefined" || arr1 == null || arr1 == "")) {
+				alert('null-no');
+			}else {
+				if(arr0.indexOf('.') == 0) {
+					alert('arr0-no');
+				}else {
+					var arrif = arr0.split(".");
+					if(arrif.length = 2) {
+						var arr0int = arrif[0];
+						var arr0flort = arrif[1];
+						if(r.test(arr0int) == false) {
+							alert('arr0int-no')
+						}else {
+							if(arr0int.length != 2) {
+								alert('arr0int-length-no');
+							}
+						}
+						if(r.test(arr0flort) == false) {
+							alert('arr0flort-no')
+						}else {
+							if(arr0flort.length != 1) {
+								alert('arr0flort-length-no');
+							}
+						}
+					}else {
+						alert('arrif-length-no');
+					}
+				}
+				if(arr1.indexOf('.') == 0) {
+					alert('arr1-no');
+				}else {
+					var arrif2 = arr1.split(".");
+					if(arrif2.length = 2) {
+						var arr1int = arrif2[0];
+						var arr1flort = arrif2[1];
+						if(r.test(arr1int) == false) {
+							alert('2-arr1int-no')
+						}else {
+							if(arr1int.length != 2) {
+								alert('2-arr1int-length-no');
+							}
+						}
+						if(r.test(arr1flort) == false) {
+							alert('2-arr1flort-no')
+						}else {
+							if(arr1flort.length != 1) {
+								alert('2-arr1flort-length-no');
+							}
+						}
+					}else {
+						alert('arrif2-length-no');
+					}
+				}
+			}
+		}else {
+			alert('v-length-no')
+		}
+	}else {
+		alert('v-no');
+	}
+
+}
+        </script>
         </body>
     </html>
 </pre>

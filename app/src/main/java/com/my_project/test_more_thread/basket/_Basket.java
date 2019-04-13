@@ -25,6 +25,7 @@ public class _Basket {
     private int in_ptr, out_ptr;
     //how many product left in basket
     private int left;
+    private volatile boolean flag = false;
     private Lock lock = new ReentrantLock();
     private Condition pro_lock = lock.newCondition();
     private Condition cus_lock = lock.newCondition();
@@ -33,8 +34,9 @@ public class _Basket {
     public void in() {
         lock.lock();
         try {
-            while (left == arr.length) {
+            while (flag) {
                 try {
+                    cus_lock.signal();
                     Log.e("in----------", "我要开始睡了" + left + out_ptr);
                     pro_lock.await();
                     Log.e("in----------", "我被叫醒来了" + left + out_ptr);
@@ -55,8 +57,9 @@ public class _Basket {
             Log.e("in----------", "left------" + left);
             if (++in_ptr == arr.length) {
                 in_ptr = 0;
+                flag = true;
             }
-                cus_lock.signal();
+
         } finally {
             lock.unlock();
         }
@@ -66,8 +69,9 @@ public class _Basket {
     public Products_2 out() {
         lock.lock();
         try {
-            while (left == 0) {
+            while (!flag) {
                 try {
+                    pro_lock.signal();
                     Log.e("out----------", "我要开始睡了" + left + out_ptr);
                     cus_lock.await();
 
@@ -89,7 +93,9 @@ public class _Basket {
             if (++out_ptr == arr.length) {
                 out_ptr = 0;
             }
-                pro_lock.signal();
+            if (left == 0) {
+                flag = false;
+            }
             return out_Products_2;
         } finally {
             lock.unlock();

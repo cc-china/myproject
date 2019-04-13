@@ -122,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
         MainPageAdapter adapter = new MainPageAdapter(getSupportFragmentManager(), this, mTitles, mFragments);
         vp_fragment.setAdapter(adapter);
         tl_tab.setupWithViewPager(vp_fragment);
-        tl_tab.setTabsFromPagerAdapter(adapter);
         for (int i = 0; i < mTitles.length; i++) {
             TabLayout.Tab tab = tl_tab.getTabAt(i);
             View view = LayoutInflater.from(this).inflate(R.layout.custom_tab, null);

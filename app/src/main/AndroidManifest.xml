@@ -92,6 +92,7 @@
         <activity android:name=".test_face_pp.FaceppActivity" />
         <activity android:name=".test_face_pp.SufaceViewActivity" />
         <activity android:name=".test_more_thread.TestMoreThreadActivity" />
+        <activity android:name=".test_view_custom.activity.CustomerTurnTableActivity" />
 
         <service
             android:name=".test_aidl.MyAidlService"
