@@ -2,6 +2,7 @@ package com.my_project;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.danikula.videocache.HttpProxyCacheServer;
 import com.iflytek.cloud.SpeechUtility;
@@ -22,7 +23,7 @@ public class MyApplication extends Application {
             return;
         }
         LeakCanary.install(this);
-        LeakCanary.install(this);
+        MultiDex.install(this);
     }
 
     private void setXunFlyRadio() {

@@ -38,6 +38,7 @@ import com.my_project.test_two_process.GuardianProcessService;
 import com.my_project.test_two_process.LocalService;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -99,8 +100,6 @@ public class MainActivity extends AppCompatActivity {
     });
 
     private void initPageAdapter() {
-//        vp_fragment.setNoScroll(true);
-
         //添加tab名称
         mTitles[0] = getString(R.string.tl_home_page);
         mTitles[1] = getString(R.string.tl_message);
@@ -222,10 +221,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//    }
 
     private long exitTime = 0;
 

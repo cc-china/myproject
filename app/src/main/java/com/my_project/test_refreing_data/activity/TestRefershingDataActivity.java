@@ -57,7 +57,7 @@ public class TestRefershingDataActivity extends Activity {
         recyclerview.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
         recyclerview.setArrowImageView(R.mipmap.iconfont_downgrey);
         //添加recycleView的头部
-//        recyclerview.addHeaderView(View.inflate(this,R.layout.view_recycleview_header_test,null));
+        recyclerview.addHeaderView(View.inflate(this,R.layout.view_recycleview_header_test,null));
 
         recyclerview.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override

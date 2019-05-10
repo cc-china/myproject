@@ -18,7 +18,7 @@ public class UserLoginPresenter {
         this.userLoginEvent = new UserLoginEvent();
     }
 
-    private android.os.Handler mHandler = new android.os.Handler();;
+    private android.os.Handler mHandler = new android.os.Handler();
 
     public void login() {
         userLoginView.showLoading();
@@ -32,7 +32,6 @@ public class UserLoginPresenter {
                         userLoginView.hideLoading();
                     }
                 });
-
             }
 
             @Override

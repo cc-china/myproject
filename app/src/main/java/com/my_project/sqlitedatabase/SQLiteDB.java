@@ -5,12 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.my_project.test_more_listview.DBModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Administrator on 2017\11\21 0021.
@@ -94,6 +96,7 @@ public class SQLiteDB {
         module.setPhone(cursor.getString(cursor.getColumnIndex("phone")));
         module.setOc(cursor.getString(cursor.getColumnIndex("oc")));
         return module;
+
     }
 
     /**
@@ -114,6 +117,8 @@ public class SQLiteDB {
             }
         }
         cursor.close();
+
+
         return list;
     }
 

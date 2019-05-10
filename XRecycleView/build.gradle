@@ -2,8 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 //-----------------上传到jcenter--------------------
 android {
-    compileSdkVersion cfgs.compileSdkVersion
-    buildToolsVersion cfgs.buildToolsVersion
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         minSdkVersion cfgs.minSdkVersion
@@ -33,7 +33,7 @@ publish {
     website = 'https://github.com/ihello/XTecycleView'
 }
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile "com.android.support:appcompat-v7:${cfgs.androidSupportVersion}"
     compile "com.android.support:recyclerview-v7:${cfgs.recyclerview}"
     compile "com.android.support:design:${cfgs.design}"

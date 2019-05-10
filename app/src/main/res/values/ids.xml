@@ -19,4 +19,5 @@
     <item type="id" name="btn_1"/>
     <item type="id" name="btn_2"/>
     <item type="id" name="webView1"/>
+    <item type="id" name="text_view"/>
 </resources>

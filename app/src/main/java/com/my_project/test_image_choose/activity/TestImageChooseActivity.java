@@ -1,10 +1,12 @@
 package com.my_project.test_image_choose.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 
 import com.my_project.R;
 import com.my_project.test_image_choose.adapter.AddMyDataImageAdapter;
@@ -12,6 +14,7 @@ import com.my_project.test_image_choose.interfaces.AddMyDataImagerClickInterface
 import com.my_project.test_image_choose.interfaces.DeletePhotosListener;
 import com.my_project.test_image_choose.model.PhotoInfo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,17 +52,6 @@ public class TestImageChooseActivity extends Activity {
         adapter.setOnItemClickListener(new AddMyDataImagerClickInterface() {
             @Override
             public void onItemClick(int position) {
-//                if (TextUtils.equals("default", photosLists.get(position).getPhotoPath())) {
-//                    initPhoto();
-//                    showPhoto("a");
-//                } else {
-//                    Intent intent = new Intent(PerfectInformationActivity.this, PhotoPreviewActivity.class);
-//                    Bundle bundle = new Bundle();
-//                    bundle.putSerializable(PhotoPreviewActivity.PHOTO_LIST, (Serializable) photosLists);
-//                    bundle.putInt(PhotoPreviewActivity.PHOTO_POSITION, position);
-//                    intent.putExtras(bundle);
-//                    startActivity(intent);
-//                }
             }
         });
         adapter.setDeletePhotosListener(new DeletePhotosListener() {

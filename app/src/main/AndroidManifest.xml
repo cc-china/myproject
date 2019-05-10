@@ -93,10 +93,14 @@
         <activity android:name=".test_face_pp.SufaceViewActivity" />
         <activity android:name=".test_more_thread.TestMoreThreadActivity" />
         <activity android:name=".test_view_custom.activity.CustomerTurnTableActivity" />
+        <activity android:name=".test_pulish_video.activity.TestPulishVideoActivity" />
+        <activity android:name=".text_io.A" />
+        <activity android:name=".test_image_choose.activity.TestImageChooseActivity" />
 
         <service
             android:name=".test_aidl.MyAidlService"
-            android:exported="true">
+            android:exported="true"
+            android:process="com.rabbit.run">
             <intent-filter>
                 <action android:name="com.test_aidl.aidl" />
                 <category android:name="android.intent.category.DEFAULT" />

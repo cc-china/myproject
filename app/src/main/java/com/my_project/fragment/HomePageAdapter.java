@@ -38,6 +38,7 @@ import com.my_project.test_system_video.activity.TestVideoActivity;
 import com.my_project.test_touch_event.activity.TestTouchEventActivity;
 import com.my_project.test_view_custom.activity.CustomerTurnTableActivity;
 import com.my_project.test_view_custom.activity.TestViewCustomActivity;
+import com.my_project.text_io.A;
 import com.my_project.text_io.activity.FileOperationActivity;
 
 import java.util.List;
@@ -120,7 +121,8 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.ViewHo
                         ctx.startActivity(new Intent(ctx, MPAndroidChartActivity.class));
                         break;
                     case "JavaIO流操作":
-                        ctx.startActivity(new Intent(ctx, FileOperationActivity.class));
+//                        ctx.startActivity(new Intent(ctx, FileOperationActivity.class));
+                        ctx.startActivity(new Intent(ctx, A.class));
                         break;
                     case "测试":
                         ctx.startActivity(new Intent(ctx, Snackbar.class));

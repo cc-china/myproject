@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.my_project.R;
+import com.my_project.test_rx_java.retrofit.RetrofitUtils;
 import com.my_project.utils.OpenJsonFileUtils;
 
 import butterknife.Bind;
