@@ -12,6 +12,10 @@ import com.my_project.R;
 import com.my_project.test.adapter.FashionBannerPagerAdapter;
 import com.my_project.test.view.CustomViewpager;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import butterknife.Bind;

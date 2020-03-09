@@ -36,4 +36,17 @@
     <!-- 听写 -->
     <string name="text_begin">请开始说话…</string>
     <string name="app_xun_fly_id">5a1b719b</string>
+
+    <string-array name="response_entries">
+        <item>静音</item>
+        <item>振动</item>
+        <item>正常响铃</item>
+        <item>LED灯亮</item>
+    </string-array>
+    <string-array name="response_entry_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

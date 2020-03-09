@@ -36,9 +36,10 @@ import com.my_project.test_bug.TempraryActivity;
 import com.my_project.test_more_listview.DBModel;
 import com.my_project.test_two_process.GuardianProcessService;
 import com.my_project.test_two_process.LocalService;
+import com.my_project.utils.AesUtils;
+import com.my_project.utils.Base64Utils;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -83,6 +84,11 @@ public class MainActivity extends AppCompatActivity {
         initPageAdapter();
         testHandler();
         sqLiteDB = new SQLiteDB(this);
+
+//        String encode = AesUtils.encrypt("1234560000000000","hello world!");
+//        Log.e("11111111_加密",encode);
+//        String decode = AesUtils.decrypt("1234560000000000",encode);
+//        Log.e("11111111_解密",decode);
     }
 
     private void testHandler() {

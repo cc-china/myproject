@@ -11,6 +11,7 @@ import android.widget.Button;
 import com.my_project.R;
 import com.my_project.Snackbar;
 import com.my_project.customer_app_upload.TestAPPUpload;
+import com.my_project.test_PreferenceDemoActivity.PreferenceDemoActivity;
 import com.my_project.test_aidl.AidlActivity;
 import com.my_project.test_android_h5.Android2JavaScript;
 import com.my_project.test_anim.TestAnimActivity;
@@ -56,7 +57,7 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.ViewHo
     private Activity ctx;
     private List<String> mList;
 
-     HomePageAdapter(Activity activity, List<String> list) {
+    HomePageAdapter(Activity activity, List<String> list) {
         this.ctx = activity;
         this.mList = list;
     }
@@ -68,7 +69,7 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder,  int p) {
+    public void onBindViewHolder(ViewHolder holder, int p) {
         final int position = p;
         holder.tvName.setText(mList.get(position));
         holder.tvName.setOnClickListener(new View.OnClickListener() {
@@ -171,6 +172,9 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.ViewHo
                         break;
                     case "抽奖转盘":
                         ctx.startActivity(new Intent(ctx, CustomerTurnTableActivity.class));
+                        break;
+                    case "PreferenceActivity控件使用":
+                        ctx.startActivity(new Intent(ctx, PreferenceDemoActivity.class));
                         break;
                 }
             }
