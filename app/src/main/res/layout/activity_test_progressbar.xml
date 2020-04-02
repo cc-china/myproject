@@ -4,13 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <!--style:设置进度条的样式，这里为直线进度条-->
+    <SeekBar
+        android:id="@+id/view_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <ProgressBar
         android:id="@+id/pb_progress_bar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:progressDrawable="@drawable/green_progres" />
+        android:progressDrawable="@drawable/green_progres"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_main_text"
