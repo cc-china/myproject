@@ -37,6 +37,7 @@ import com.my_project.test_refreing_data.activity.TestRefershingDataActivity;
 import com.my_project.test_rx_java.activity.RXJavaActivity;
 import com.my_project.test_system_video.activity.TestVideoActivity;
 import com.my_project.test_touch_event.activity.TestTouchEventActivity;
+import com.my_project.test_vector.VectorActivity;
 import com.my_project.test_view_custom.activity.CustomerTurnTableActivity;
 import com.my_project.test_view_custom.activity.TestViewCustomActivity;
 import com.my_project.text_io.A;
@@ -175,6 +176,9 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.ViewHo
                         break;
                     case "PreferenceActivity控件使用":
                         ctx.startActivity(new Intent(ctx, PreferenceDemoActivity.class));
+                        break;
+                    case "Vector画图":
+                        ctx.startActivity(new Intent(ctx, VectorActivity.class));
                         break;
                 }
             }

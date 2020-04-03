@@ -97,6 +97,7 @@
         <activity android:name=".text_io.A" />
         <activity android:name=".test_image_choose.activity.TestImageChooseActivity" />
         <activity android:name=".test_PreferenceDemoActivity.PreferenceDemoActivity" />
+        <activity android:name=".test_vector.VectorActivity" />
 
         <service
             android:name=".test_aidl.MyAidlService"

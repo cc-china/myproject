@@ -73,6 +73,7 @@ public class HomePageFragment extends Fragment {
         data.add("人脸识别SDK");
         data.add("抽奖转盘");
         data.add("PreferenceActivity控件使用");
+        data.add("Vector画图");
     }
 
     private void initAdapter() {
