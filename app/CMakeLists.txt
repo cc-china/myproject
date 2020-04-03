@@ -22,6 +22,8 @@ add_library( # Sets the name of the library.
              # 设置这个so文件为共享.
               src/main/jni/testjni.c)
 
+add_library(linkJNI SHARED src/main/cpp/launchScan.cpp)
+
  # Searches for a specified prebuilt library and stores the path as a
  # variable. Because CMake includes system libraries in the search path by
  # default, you only need to specify the name of the public NDK library

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.utils.Utils;
 import com.my_project.R;
 import com.my_project.test_jni.JNIUtils;
 
@@ -28,7 +29,9 @@ public class MakeJNIActivity extends Activity {
     }
 
     private void initView() {
-        tvJni.setText(new JNIUtils().getName());
+//        tvJni.setText(new JNIUtils().getName("84668464545"));
+//        tvJni.setText(new JNIUtils().getBackTotalNum(1,7)+"");
+        tvJni.setText(new JNIUtils().getBackText("12321312312"));
     }
 
     @Override
