@@ -18,6 +18,10 @@ import com.my_project.test_more_thread.product.ProductFactory_1;
 import com.my_project.test_more_thread.product.ProductFactory_2;
 
 import java.net.URL;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * Created by Administrator on 2019\2\25 0025.
@@ -32,7 +36,40 @@ public class TestMoreThreadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        initView();
 //        initView1();
-        initView2();
+//        initView2();
+        initView3();
+    }
+
+    private volatile int a = 0;
+
+    private void initView3() {
+        Thread[] thr = new Thread[5];
+        for (int i = 0; i < 5; i++) {
+            thr[i] = new MyThread();
+            thr[i].start();
+        }
+    }
+
+    ReentrantLock reentrantLock = new ReentrantLock();
+    ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
+    ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
+    ReentrantReadWriteLock.WriteLock writeLock = readWriteLock.writeLock();
+    Object object = new Object();
+
+    class MyThread extends Thread {
+        @Override
+        public void run() {
+            super.run();
+            synchronized (object) {
+                try {
+                    for (int i = 0; i < 10; i++) {
+                        Log.e("1111111111", a++ + "");
+                        Thread.sleep(5);
+                    }
+                } catch (Exception e) {
+                }
+            }
+        }
     }
 
     private void initView() {

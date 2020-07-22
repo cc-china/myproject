@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -20,6 +19,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Administrator on 2017\12\18 0018.
+ *
  */
 
 public class TestDisPatchTouchEventActivity extends Activity {

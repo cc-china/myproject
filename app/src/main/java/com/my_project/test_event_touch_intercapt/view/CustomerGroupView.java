@@ -33,13 +33,12 @@ public class CustomerGroupView extends RelativeLayout {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.e("tag","viewGroup_onTouchEvent");
-        return true;
+        return super.onTouchEvent(event);
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         Log.e("tag","viewGroup_onInterceptTouchEvent");
-//        return super.onInterceptTouchEvent(ev);
-        return false;
+        return super.onInterceptTouchEvent(ev);
     }
 }

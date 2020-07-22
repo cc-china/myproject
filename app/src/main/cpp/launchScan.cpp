@@ -1,17 +1,28 @@
 #include <jni.h>
 #include <string>
+#include <iostream>
 #include <android/log.h>
+using namespace std;
 
 extern "C"{
  jint getBackTotalNum(JNIEnv * env,jobject job,jint x,jint y){
     printf("getBackTotalNum,x is :%d,y is :%d",x,y);
     return x+y;
  }
+ class Test{
+     Test();
+     ~Test();
+     public: static void tost(){
+         std::cout << "1111111111111111-------------3";
+     }
+  };
+
  jstring getBackText(JNIEnv * env,jobject job,jstring str){
-    //const char * str1 = (*env)->GetStringUTFChars(env,str,0);
-    //printf("getBackText,jstring is :%s",str);
-    return env->NewStringUTF("232423423423423");
-    //return env->NewStringUTF(str);
+    const char * str1 = env->GetStringUTFChars(str,0);
+    printf("getBackText,jstring is :%s",str1);
+    env->ReleaseStringUTFChars(str,str1);
+    Test::tost();
+    return env->NewStringUTF(str1);
  }
 
  const char * className = "com/my_project/test_jni/JNIUtils";

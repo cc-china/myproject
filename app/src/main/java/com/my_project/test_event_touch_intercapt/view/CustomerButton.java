@@ -9,6 +9,7 @@ import android.widget.Button;
 
 /**
  * Created by Administrator on 2017\12\18 0018.
+ *
  */
 
 @SuppressLint("AppCompatCustomView")
@@ -25,17 +26,17 @@ public class CustomerButton extends Button {
         super(context, attrs, defStyleAttr);
     }
 
+
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.e("tag","view_onTouchEvent");
-//        return super.onTouchEvent(event);
-        return true;
+        return super.onTouchEvent(event);
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         Log.e("tag","view_dispatchTouchEvent");
         return super.dispatchTouchEvent(event);
-//        return true;
     }
 }
