@@ -6,7 +6,6 @@ package com.my_project.test_jni;
 
 public class JNIUtils {
     static {
-        //注意名字需要跟你的build.gradle节点下面的名字一样
 //        System.loadLibrary("testJNI");
         System.loadLibrary("linkJNI");
     }
@@ -15,4 +14,6 @@ public class JNIUtils {
     public native String getName(String str);
     public native int getBackTotalNum(int x,int y);
     public native String getBackText(String str);
+    public static native byte[] setByteArrayData(byte[] byteArrayData);
+    public static native void setObjectData(JniObjResult jniObjResult);
 }

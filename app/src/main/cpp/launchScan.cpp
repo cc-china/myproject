@@ -1,34 +1,80 @@
 #include <jni.h>
 #include <string>
-#include <iostream>
 #include <android/log.h>
-using namespace std;
+#define  LOG_TAG    "native-dev"
+#define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+#define LOGE(...)  __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 
 extern "C"{
  jint getBackTotalNum(JNIEnv * env,jobject job,jint x,jint y){
-    printf("getBackTotalNum,x is :%d,y is :%d",x,y);
+    LOGI("getBackTotalNum,x is :%d,y is :%d",x,y);
     return x+y;
  }
- class Test{
-     Test();
-     ~Test();
-     public: static void tost(){
-         std::cout << "1111111111111111-------------3";
-     }
-  };
 
  jstring getBackText(JNIEnv * env,jobject job,jstring str){
     const char * str1 = env->GetStringUTFChars(str,0);
-    printf("getBackText,jstring is :%s",str1);
+    LOGI("getBackText,jstring is :%s",str1);
     env->ReleaseStringUTFChars(str,str1);
-    Test::tost();
     return env->NewStringUTF(str1);
  }
 
+ jobject setObjectData(JNIEnv * env,jobject job,jobject objData){
+
+    //根据全路径类名查找到java对象
+    jclass obj = env->FindClass("com/my_project/test_jni/JniObjResult");
+    //根据java对象、成员属性名、属性签名查找 到对象的成员变量
+    jfieldID jfieldID = env->GetFieldID(obj,"byteArray","[B");
+    jbyteArray byteArray = (jbyteArray)env->GetObjectField(objData, jfieldID);
+    //获取数组长度
+    int byteArrayLength = env->GetArrayLength(byteArray);
+    //将jni类型转变为char *指针
+    char* pByteArray = (char*)env->GetByteArrayElements(byteArray,0);
+    //申请数组，从指针中取出每一个字符
+        jbyte arr[byteArrayLength];
+        for(int i =0;i<byteArrayLength;i++){
+            arr[i] = pByteArray[i];
+            LOGI("setObjectData,byteArray is :%d",arr[i]);
+        }
+        //再从c代码中取出数组，返回给java
+        jbyteArray c_result = env->NewByteArray(byteArrayLength);
+        env->SetByteArrayRegion(c_result,0,byteArrayLength,arr);
+        jclass objBack = env->FindClass("com/my_project/test_jni/JniObjResult");
+        //创建java对象
+        // objBack的默认构造函数
+        jmethodID mthodidDataConstructor = env->GetMethodID(objBack, "<init>", "()V");
+        jobject objDate = env->NewObject(objBack, mthodidDataConstructor);
+        //释放内存
+        //env->ReleaseByteArrayElements(byteArry,byteArray,0);
+
+        return objDate;
+ }
+
+jbyteArray setByteArrayData(JNIEnv * env,jobject job,jbyteArray byteArry){
+    //获取数组长度
+    int byteArryLength = env->GetArrayLength(byteArry);
+    LOGI("setByteArryrdata,byteArryLength is :%d",byteArryLength);
+    //获取数组指针
+    signed char* byteArray=(signed char*)env->GetByteArrayElements(byteArry,0);
+
+    //申请数组，从指针中取出每一个字符
+    jbyte arr[byteArryLength];
+    for(int i =0;i<byteArryLength;i++){
+        arr[i] = byteArray[i];
+        LOGI("setByteArryrdata,byteArray is :%d",arr[i]);
+    }
+    //再从c代码中取出数组，返回给java
+    jbyteArray c_result = env->NewByteArray(byteArryLength);
+    env->SetByteArrayRegion(c_result,0,byteArryLength,arr);
+    //释放内存
+    env->ReleaseByteArrayElements(byteArry,byteArray,0);
+    return c_result;
+}
  const char * className = "com/my_project/test_jni/JNIUtils";
  const JNINativeMethod getMethods[] = {
         {"getBackTotalNum","(II)I",(void*) getBackTotalNum}
         ,{"getBackText","(Ljava/lang/String;)Ljava/lang/String;",(void*)getBackText}
+        ,{"setByteArrayData","([B)[B",(void*)setByteArrayData}
+        ,{"setObjectData","(Lcom/my_project/test_jni/JniObjResult;)Lcom/my_project/test_jni/JniObjResult;",(void*)setObjectData}
         };
 
  jint RegisterNative(JNIEnv* env){

@@ -15,17 +15,18 @@ android {
                 includeCompileClasspath true
             }
         }
-//        ndk {
-//            moduleName "testJNI" //生成的so名字
-//            abiFilters "arm64-v8a", "armeabi-v7a", "x86" //输出指定三种abi体系结构下的so库。
-//            stl "stlport_static" //打开.c 的 debug , 下面第 4 点会讲到
-//        }
-        // 使用Cmake工具
+        ndk {
+            moduleName "testJNI" //生成的so名字
+            ldLibs "log" //实现__android_log_print
+            abiFilters 'arm64-v8a', 'armeabi-v7a'//输出指定三种abi体系结构下的so库。
+            //stl "stlport_static" //打开.c 的 debug , 下面第 4 点会讲到
+        }
+        // 使用Cmake 工具
         externalNativeBuild {
             cmake {
                 cppFlags ""
                 //生成多个版本的so文件
-                abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86', 'x86_64'
+                abiFilters 'arm64-v8a', 'armeabi-v7a'//输出指定三种abi体系结构下的so库。
             }
         }
     }

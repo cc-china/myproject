@@ -4,12 +4,15 @@ import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.my_project.R;
 import com.my_project.test_refreing_data.view.SlideListView;
+
 import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -34,12 +37,21 @@ public class TestRefreshingAdapter extends RecyclerView.Adapter<TestRefreshingAd
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.tvName.setText(mList.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(ctx, "点击了" + mList.get(position) + "条数据", Toast.LENGTH_LONG).show();
+            }
+        });
+        holder.cb_change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.cb_change.isChecked())
+                    Toast.makeText(ctx, "选择了" + mList.get(position) + "条数据", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(ctx, "取消了" + mList.get(position) + "条数据", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -54,9 +66,11 @@ public class TestRefreshingAdapter extends RecyclerView.Adapter<TestRefreshingAd
         TextView tvName;
         @Bind(R.id.back)
         TextView back;
+        CheckBox cb_change;
 
         ViewHolder(View view) {
             super(view);
+            cb_change = view.findViewById(R.id.cb_change);
             ButterKnife.bind(this, view);
         }
     }

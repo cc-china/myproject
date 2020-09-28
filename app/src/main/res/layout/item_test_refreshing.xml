@@ -3,7 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <CheckBox
+        android:id="@+id/cb_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="match_parent"
@@ -11,6 +19,8 @@
         android:gravity="center"
         android:layout_gravity="center_horizontal"
         android:textSize="22sp"/>
+
+</LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

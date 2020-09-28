@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.Toast;
 
 import com.caoyun.xrecycleview.GridSpacingItemDecoration;
 import com.caoyun.xrecycleview.ProgressStyle;
@@ -54,10 +55,11 @@ public class TestRefershingDataActivity extends Activity {
         recyclerview.setAdapter(adapter);
 
         recyclerview.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+
         recyclerview.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
         recyclerview.setArrowImageView(R.mipmap.iconfont_downgrey);
         //添加recycleView的头部
-        recyclerview.addHeaderView(View.inflate(this,R.layout.view_recycleview_header_test,null));
+        recyclerview.addHeaderView(View.inflate(this, R.layout.view_recycleview_header_test, null));
 
         recyclerview.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override

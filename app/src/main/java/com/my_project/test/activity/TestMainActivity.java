@@ -1,113 +1,96 @@
 package com.my_project.test.activity;
 
 import android.app.Activity;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.my_project.R;
-import com.my_project.test.adapter.FashionBannerPagerAdapter;
-import com.my_project.test.view.CustomViewpager;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by com_c on 2017/12/31.
  */
 
-public class TestMainActivity extends Activity {
-    @Bind(R.id.vp_pager)
-    CustomViewpager vpPager;
-    private FashionBannerPagerAdapter bannerAdapter;
-    private MediaPlayer mediaPlayer;
+public class TestMainActivity extends Activity implements ViewCallback{
+
+    private Button btn_test;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_love);
-        ButterKnife.bind(this);
-        mediaPlayer = MediaPlayer.create(this, R.raw.music);
+        btn_test = findViewById(R.id.btn_test);
+        EditText edit_query = findViewById(R.id.edit_query);
         initView();
     }
-
     @Override
     protected void onResume() {
         super.onResume();
-        mediaPlayer.start();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mediaPlayer.stop();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        mediaPlayer = MediaPlayer.create(this, R.raw.music);
-        mediaPlayer.start();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mediaPlayer.stop();
     }
 
     private void initView() {
-        int[] mList = {R.mipmap.e, R.mipmap.e, R.mipmap.e, R.mipmap.e};
-        settingShufflingFigure(vpPager, mList);
-        mHandler.sendEmptyMessageDelayed(2, 4000);
+        new B().setData(this);
+        ATest test = new ATest();
+        test.setId(1);
+        test.setName("hahaha");
+        ATest b = test;
+        test.setName("哈哈");
+        btn_test.setText(c.getName());
     }
 
-    //设置轮播图
-    private void settingShufflingFigure(CustomViewpager vpPager, int[] mList) {
-        vpPager.setmPager(vpPager);
-        bannerAdapter = new FashionBannerPagerAdapter(TestMainActivity.this, mList);
-        vpPager.setAdapter(bannerAdapter);
-        vpPager.setOnPageChangeListener(onPageChangeListener);
+
+    @Override
+    public void showText(String ctx) {
+        btn_test.setText(ctx);
     }
 
-    private ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
-        @Override
-        public void onPageSelected(int arg0) {
-            int index = arg0 % bannerAdapter.getList().length;
-//            dianCheck(index);
+    class B {
+        void setData(ViewCallback callback){
+            callback.showText("哈哈哈");
+        }
+    }
+
+    static ATest c ;
+
+    class ATest {
+        int id;
+        String name;
+
+        public ATest() {
+            c = this;
         }
 
-        @Override
-        public void onPageScrolled(int arg0, float arg1, int arg2) {
+        public int getId() {
+            return id;
         }
 
-        @Override
-        public void onPageScrollStateChanged(int arg0) {
+        public void setId(int id) {
+            this.id = id;
         }
-    };
 
-    private Handler mHandler = new Handler(new Handler.Callback() {
-        @Override
-        public boolean handleMessage(Message msg) {
-            switch (msg.what) {
-                case 2:
-                    // TODO 循环转动
-                    int pagerIndex = vpPager.getCurrentItem();
-                    mHandler.removeMessages(2);
-                    vpPager.setCurrentItem(pagerIndex + 1);
-                    mHandler.sendEmptyMessageDelayed(2, 2000);
-                    break;
-            }
-            return false;
+        public String getName() {
+            return name;
         }
-    });
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
 }
